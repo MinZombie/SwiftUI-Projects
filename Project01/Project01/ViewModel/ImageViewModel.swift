@@ -15,7 +15,7 @@ class ImageViewModel: ObservableObject {
     }
     
     func fetchData() {
-        let key = "AIToJUk7L86F5FA7OCZa3-UAlUn35h15lsOgQUl1GmY"
+        let key = apiKey
         let url = "https://api.unsplash.com/photos/random/?count=10&client_id=\(key)"
         
         let session = URLSession(configuration: .default)
