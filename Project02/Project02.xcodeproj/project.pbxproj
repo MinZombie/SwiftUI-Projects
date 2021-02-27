@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D201848125E99D0C004AF879 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D201848025E99D0C004AF879 /* Persistence.swift */; };
+		D201848525E99D8D004AF879 /* ListCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D201848325E99D8D004AF879 /* ListCoreData.xcdatamodeld */; };
 		D21A810325E04964001E07C4 /* Project02App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21A810225E04964001E07C4 /* Project02App.swift */; };
 		D21A810525E04964001E07C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21A810425E04964001E07C4 /* ContentView.swift */; };
 		D21A810725E04965001E07C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21A810625E04965001E07C4 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D201848025E99D0C004AF879 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D201848425E99D8D004AF879 /* List.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = List.xcdatamodel; sourceTree = "<group>"; };
 		D21A80FF25E04964001E07C4 /* Project02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21A810225E04964001E07C4 /* Project02App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project02App.swift; sourceTree = "<group>"; };
 		D21A810425E04964001E07C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D201847F25E99C84004AF879 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				D201848025E99D0C004AF879 /* Persistence.swift */,
+				D201848325E99D8D004AF879 /* ListCoreData.xcdatamodeld */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 		D21A80F625E04964001E07C4 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +77,7 @@
 		D21A810125E04964001E07C4 /* Project02 */ = {
 			isa = PBXGroup;
 			children = (
+				D201847F25E99C84004AF879 /* shared */,
 				D255DE7825E598E800858FC1 /* View */,
 				D245A33225E5286E002AC69C /* ViewModel */,
 				D245A32E25E50A83002AC69C /* Model */,
@@ -186,6 +200,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D21A810525E04964001E07C4 /* ContentView.swift in Sources */,
+				D201848125E99D0C004AF879 /* Persistence.swift in Sources */,
+				D201848525E99D8D004AF879 /* ListCoreData.xcdatamodeld in Sources */,
 				D255DE8025E5A32D00858FC1 /* DetailView.swift in Sources */,
 				D255DE7D25E5A2B400858FC1 /* DetailViewModel.swift in Sources */,
 				D245A33025E50AB8002AC69C /* PokemonModel.swift in Sources */,
@@ -397,6 +413,19 @@
 			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		D201848325E99D8D004AF879 /* ListCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D201848425E99D8D004AF879 /* List.xcdatamodel */,
+			);
+			currentVersion = D201848425E99D8D004AF879 /* List.xcdatamodel */;
+			path = ListCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D21A80F725E04964001E07C4 /* Project object */;
 }

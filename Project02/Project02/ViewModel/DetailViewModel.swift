@@ -31,7 +31,6 @@ class DetailViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.detailPokemon = decodeData
                 }
-                print("Detail View Model")
             } catch {
                 
                 print(error.localizedDescription)
@@ -64,10 +63,4 @@ class DetailViewModel: ObservableObject {
         }
     }
     
-    
-    
-    
-    deinit {
-        print("deinit DetailViewModel")
-    }
 }

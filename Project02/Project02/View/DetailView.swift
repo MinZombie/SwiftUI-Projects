@@ -4,13 +4,14 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct DetailView: View {
-    // MARK : - PROPERTIES
+    // MARK: - PROPERTIES
     @StateObject var detailData = DetailViewModel()
     
-    let pokemonData: Pokemon
+    var pokemonData: Pokemon?
+    var fetchedCoreData: ListCoreData?
     let screen = UIScreen.main.bounds
 
-    // MARK : - BODY
+    // MARK: - BODY
     var body: some View {
         
             ZStack {
@@ -30,7 +31,7 @@ struct DetailView: View {
 
         
         .onAppear {
-            detailData.fetchData(url: pokemonData.url)
+            detailData.fetchData(url: pokemonData == nil ? fetchedCoreData!.url! : pokemonData!.url)
         }
     }
     
@@ -48,7 +49,7 @@ struct DetailView: View {
     // Description
     var pokemonDescription: some View {
         VStack(spacing: 24) {
-            Text("\(pokemonData.name)")
+            Text("\(pokemonData == nil ? fetchedCoreData!.name! : pokemonData!.name)")
                 .font(.system(size: 40, weight: .semibold, design: .monospaced))
 
             HStack {

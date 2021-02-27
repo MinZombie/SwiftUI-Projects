@@ -1,20 +1,39 @@
 
 import SwiftUI
+import CoreData
 
 class ListViewModel: ObservableObject {
     
     // MARK: - PROPERTIES
     
     @Published var pokemonList: [Pokemon] = []
-    let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=10")
+    let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151")
     
-    init() {
-        fetchData()
+    
+    // MARK: - SAVE JSON TO CORE DATA
+    
+    func saveData(context: NSManagedObjectContext) {
+        
+        pokemonList.forEach { data in
+            
+            let entity = ListCoreData(context: context)
+            entity.name = data.name
+            entity.url = data.url
+        }
+        
+        do {
+            
+            try context.save()
+            
+        } catch {
+            
+            print(error.localizedDescription)
+        }
     }
     
-    // MARK: - FETCH DATA FUNCTION
+    // MARK: - FETCH DATA FROM JSON
     
-    func fetchData() {
+    func fetchData(context: NSManagedObjectContext) {
         
         let session = URLSession(configuration: .default)
         
@@ -33,8 +52,8 @@ class ListViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.pokemonList = decodeData.results
+                    self.saveData(context: context)
                 }
-                print("List View Model")
                 
             } catch {
                 
@@ -43,8 +62,5 @@ class ListViewModel: ObservableObject {
         }
         .resume()
     }
-    
-    deinit {
-        print("deinit ListViewModel")
-    }
+
 }
